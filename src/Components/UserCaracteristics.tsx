@@ -33,7 +33,7 @@ export default function UserCaracteristics({
     }
 
     return (
-        <div className="bg-digeizGreen p-4 rounded-md">
+        <div className="bg-digeizGreen p-4 rounded-md drop-shadow-md">
             <div className="flex flex-col py-2">
                 <div className="flex flex-row">
                     <HiOutlineClock color="#6805F2" />
