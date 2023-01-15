@@ -1,28 +1,14 @@
-import { useState } from "react";
 import { getRandomColor } from "../utils";
 
-type Point = {
-  time: Number;
-  x: Number;
-  y: Number;
-};
+import { Point, UserTrajectoryProps } from "../common"
 
-type UserTrajectory = {
-  id: Number;
-  points: Array<Point>;
-};
-
-type UserTrajectoryProps = {
-  userTrajectory: UserTrajectory;
-};
-
-function returnPointsString(points: Array<Point>) {
-  let pointsString = "";
-  points.sort((a, b) => a.time - b.time).map((point: Point) => {
+function returnPointsString(points: Array<Point>): String {
+  let pointsString: String = "";
+  points.sort((a, b) => a.time.valueOf() - b.time.valueOf()).map((point: Point) => {
     pointsString =
-      pointsString + `${Math.round(point.x * 10)},${Math.round(point.y * 10)} `;
+      pointsString + `${Math.round(point.x.valueOf() * 10)},${Math.round(point.y.valueOf() * 10)} `;
   });
-  console.log(pointsString);
+
   return pointsString;
 }
 
@@ -30,18 +16,16 @@ export default function UserTrajectory({
   userTrajectory,
 }: UserTrajectoryProps) {
 
-  return (<div style={{flex: 1, flexDirection: "column", justifyContent: "space-between"}}>
-
-    <div style={{ position: "absolute", width: "100%", paddingTop: "150px" }}>
+  return (
+    <div className="flex flex-col items-center p-4 md:p-40">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <polygon
-          points={returnPointsString(userTrajectory.points)}
+          points={returnPointsString(userTrajectory.points).toString()}
           fill="none"
           stroke={getRandomColor()}
         />
-        {userTrajectory.points.map(point => <circle cx={`${Math.round(point.x * 10)}`} cy={`${Math.round(point.y * 10)}`} r="0.6"/> )}
+        {userTrajectory.points.map(point => <circle cx={`${Math.round(point.x.valueOf() * 10)}`} cy={`${Math.round(point.y.valueOf() * 10)}`} r="0.6" />)}
       </svg>
-    </div>
     </div>
   );
 }
