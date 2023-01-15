@@ -32,7 +32,7 @@ function App() {
           <h1 className="text-3xl font-bold py-5 text-digeizGreen">
             Select one user to see his path
           </h1>
-          <Select className="py-5" options={options} value={options[0]} onChange={(e) => { if (e !== null) setUsers([e.value]) }} />
+          <Select className="py-5" options={options} defaultValue={options[0]} onChange={(e) => { if (e !== null) setUsers([e.value]) }} />
           {Trajectories.filter(trajectory => users.includes(trajectory.id)).map(user => <UserCaracteristics userTrajectory={user} />)}
           <div className="flex flex-col p-4 bg-digeizGreen rounded-md shadow-md my-4">
             <div className="flex flex-row"><HiOutlineFlag color="#6805F2" /> <h1 className="pl-2 text-digeizPurple">Start point</h1></div>
