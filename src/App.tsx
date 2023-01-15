@@ -13,7 +13,7 @@ import UserCaracteristics from './Components/UserCaracteristics'
 
 function App() {
 
-  const [users, setUsers] = useState<Array<String>>([])
+  const [users, setUsers] = useState<Array<String>>([Trajectories[0].id])
 
   const options:Array<ValueLabel> = [];
 
@@ -30,7 +30,7 @@ function App() {
           <h1 className="text-3xl font-bold py-5 text-digeizGreen">
             Select one user to see his path
           </h1>
-          <Select className="py-5" options={options} onChange={(e) => {if(e !== null ) setUsers([e.value])}}/>
+          <Select className="py-5" options={options} value={options[0]} onChange={(e) => {if(e !== null ) setUsers([e.value])}}/>
           {Trajectories.filter(trajectory => users.includes(trajectory.id)).map(user => <UserCaracteristics userTrajectory={user} />)}
         </div>
         <div className="flex text-3xl font-bold w-full h-full">

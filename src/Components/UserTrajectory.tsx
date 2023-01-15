@@ -26,8 +26,8 @@ export default function UserTrajectory({
           stroke="#fff"
         />
         {userTrajectory.points.map(point => <circle cx={`${Math.round(point.x.valueOf() * 10)}`} cy={`${Math.round(point.y.valueOf() * 10)}`} r="0.4" fill="#6805F2" />)}
-        <HiStop x={`${Math.round(userTrajectory.points[userTrajectory.points.length-1].x.valueOf() * 10)}`} y={`${Math.round(userTrajectory.points[userTrajectory.points.length-1].y.valueOf() * 10)}`} size="4" fill="#F20574" />
-        <HiOutlineFlag color="#6805F2" x={`${Math.round(userTrajectory.points[0].x.valueOf() * 10)}`} y={`${Math.round(userTrajectory.points[0].y.valueOf() * 10)}`} size="4"/>        
+        <HiStop x={`${Math.round(userTrajectory.points[userTrajectory.points.length-1].x.valueOf() * 10)}`} y={`${Math.round(userTrajectory.points[userTrajectory.points.length-1].y.valueOf() * 10)}`} size="2" fill="#F20574" />
+        <HiOutlineFlag color="#6805F2" x={`${Math.round(userTrajectory.points[0].x.valueOf() * 10 -1)}`} y={`${Math.round(userTrajectory.points[0].y.valueOf() * 10)}`} size="2"/>        
       </svg>
     </div>
   );
